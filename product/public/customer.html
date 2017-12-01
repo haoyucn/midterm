@@ -1,0 +1,31 @@
+<html>
+<head>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="stylesheets/admin.css" rel="stylesheet">
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+  <script src="javascripts/app.js"></script>
+</head>
+
+<body ng-app="candidate" ng-controller="MainCtrl">
+<h1 class="banner" >Shopping Interface</h1>
+
+<div class = "mainbody">
+
+<section>
+<h1> Current Products</h1>
+<div ng-repeat="candidate in candidates | orderBy: 'Name'">
+  <input type="checkbox" name="candidatesName" ng-model="candidate.selected"></input>
+  {{candidate.Name}} - price {{candidate.price}} <img src ={{candidate.imgURL}} height="200">
+</div>
+<button type="submit" ng-click="incrementUpvotes()">Submit Orders</button>
+</section>
+<aside>
+<h1>Shopping Cart</h1>
+<div ng-repeat="candidate in temp | orderBy:'Name'">
+  {{candidate.Name}} - price {{candidate.price}} <img src ={{candidate.imgURL}} height="200">
+</div>
+</aside>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,33 @@
+<html>
+<head>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="stylesheets/admin.css" rel="stylesheet">
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+  <script src="javascripts/app.js"></script>
+</head>
+<body ng-app="candidate" ng-controller="MainCtrl">
+  <h1 class="banner">Store Management Interface</h1>
+  
+  <div class="mainbody">
+  <section>
+  <h1> Add New Product</h1>
+  <form ng-submit="addCandidate()">
+    <p>Product Name <input type="text" ng-model="formContent"></input></p>
+    <p>Price <input type="text" ng-model="priceContent"></input></p>
+    <p>Picture URL <input type="text" ng-model="imgContent"></input></p>
+    <button type="submit">Add Product</button>
+  </form>
+  </section>
+  
+  <aside> 
+  <h1>Current Products</h1>
+  <div ng-repeat="candidate in candidates | orderBy: ['-upvotes','Name']">
+    <span class="glyphicon glyphicon-remove" ng-click="delete(candidate)"></span>
+    {{candidate.Name}} - price {{candidate.price}} - ordered {{candidate.upvotes}} <img src ={{candidate.imgURL}} height= "200">
+  </div>
+  </aside>
+  </div>
+
+</body>
+</html>
