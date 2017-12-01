@@ -22,7 +22,7 @@
   
   <aside> 
   <h1>Current Products</h1>
-  <div ng-repeat="candidate in candidates | orderBy: ['-upvotes','Name']">
+  <div ng-repeat="candidate in candidates | orderBy: 'Name'">
     <span class="glyphicon glyphicon-remove" ng-click="delete(candidate)"></span>
     {{candidate.Name}} - price {{candidate.price}} - ordered {{candidate.upvotes}} <img src ={{candidate.imgURL}} height= "200">
   </div>
